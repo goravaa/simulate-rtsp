@@ -1,0 +1,11 @@
+
+services:
+  rtsp-server:
+    image: aler9/rtsp-simple-server
+    ports:
+      - "8554:8554"  # Exposes the default RTSP port
+
+  streamer:
+    build: .
+    depends_on:
+      - rtsp-server
